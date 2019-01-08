@@ -11,12 +11,13 @@
     tools:context="com.example.joellehanna.libraryuser.MainActivity">
 
     <Button
+        android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Scan"
-        android:id="@+id/button"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="149dp"
+        android:text="Scan Book" />
 
     <TextView
         android:id="@+id/scanText"
@@ -26,4 +27,47 @@
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="161dp"
         android:text="" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="42dp"
+        android:text="Welcome !" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/scanText"
+        android:layout_alignStart="@+id/button"
+        android:layout_marginStart="-16dp"
+        android:layout_marginBottom="-3dp"
+        android:text="Library Overview"
+        android:layout_alignLeft="@+id/button"
+        android:layout_marginLeft="-16dp" />
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="-15dp"
+        android:layout_marginBottom="129dp"
+        android:text="Search Book"
+        android:layout_alignRight="@+id/button"
+        android:layout_marginRight="-15dp" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/button"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="46dp"
+        android:text="Users"
+        android:layout_alignRight="@+id/button" />
 </RelativeLayout>
