@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "465311358871",
+    "firebase_url": "https://user-manager-f013b.firebaseio.com",
+    "project_id": "user-manager-f013b",
+    "storage_bucket": "user-manager-f013b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:465311358871:android:62aa0a52295f39cb",
+        "android_client_info": {
+          "package_name": "com.usermanager"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "465311358871-tedirllcptvqfgjuabk33s4b3a6k48bh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdPEbkkliCvP78UD0T6Meyd1aw14LLeO4"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

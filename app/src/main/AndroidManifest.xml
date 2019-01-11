@@ -20,6 +20,9 @@
         <meta-data
             android:name="com.google.android.actions"
             android:resource="@xml/searchable" />
+
+        <activity android:name=".searchActivity" />
+        <activity android:name=".LibraryActivity"></activity>
     </application>
 
 </manifest>

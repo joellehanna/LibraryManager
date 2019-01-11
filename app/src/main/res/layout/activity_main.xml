@@ -11,13 +11,14 @@
     tools:context="com.example.joellehanna.libraryuser.MainActivity">
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/scanBook"
+        android:onClick="clickedScanBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="149dp"
-        android:text="Scan Book" />
+        android:text="@string/scan_book" />
 
     <TextView
         android:id="@+id/scanText"
@@ -29,45 +30,46 @@
         android:text="" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/welcomeMsg"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
-        android:text="Welcome !" />
+        android:text="@string/welcome" />
 
     <Button
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/scanText"
-        android:layout_alignStart="@+id/button"
+        android:layout_alignStart="@+id/scanBook"
         android:layout_marginStart="-16dp"
         android:layout_marginBottom="-3dp"
-        android:text="Library Overview"
-        android:layout_alignLeft="@+id/button"
+        android:text="@string/library_overview"
+        android:layout_alignLeft="@+id/scanBook"
         android:layout_marginLeft="-16dp" />
 
     <Button
-        android:id="@+id/button3"
+        android:id="@+id/searchBooks"
+        android:onClick="clickedSearchBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button"
+        android:layout_alignEnd="@+id/scanBook"
         android:layout_alignParentBottom="true"
         android:layout_marginEnd="-15dp"
         android:layout_marginBottom="129dp"
-        android:text="Search Book"
-        android:layout_alignRight="@+id/button"
+        android:text="@string/search_books"
+        android:layout_alignRight="@+id/scanBook"
         android:layout_marginRight="-15dp" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/button"
+        android:layout_alignEnd="@+id/scanBook"
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="46dp"
-        android:text="Users"
-        android:layout_alignRight="@+id/button" />
+        android:text="@string/users"
+        android:layout_alignRight="@+id/scanBook" />
 </RelativeLayout>

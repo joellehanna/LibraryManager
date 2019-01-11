@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Library Manager</string>
+    <string name="scan_book">Scan Book</string>
+    <string name="library_overview">Library Overview</string>
+    <string name="search_books">Search Book</string>
+    <string name="users">Users</string>
+    <string name="welcome">Welcome !</string>
 </resources>
