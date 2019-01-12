@@ -15,18 +15,25 @@
         android:onClick="clickedScanBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:background="@drawable/buttonshape"
+        android:drawableLeft="@drawable/barcode"
+        android:layout_below="@+id/welcomeMsg"
+        android:drawablePadding="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="149dp"
+        android:layout_marginTop="70dp"
         android:text="@string/scan_book" />
 
     <TextView
         android:id="@+id/scanText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_below="@+id/scanBook"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="161dp"
+        android:layout_marginTop="10dp"
         android:text="" />
 
     <TextView
@@ -34,6 +41,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
+        android:layout_centerVertical="true"
+        android:textSize="32dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="42dp"
         android:text="@string/welcome" />
@@ -42,34 +51,45 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/scanText"
-        android:layout_alignStart="@+id/scanBook"
-        android:layout_marginStart="-16dp"
-        android:layout_marginBottom="-3dp"
+        android:background="@drawable/buttonshape"
+        android:drawableLeft="@drawable/bookshelf"
+        android:layout_below="@+id/scanText"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
         android:text="@string/library_overview"
-        android:layout_alignLeft="@+id/scanBook"
-        android:layout_marginLeft="-16dp" />
+        android:drawableStart="@drawable/bookshelf" />
 
     <Button
         android:id="@+id/searchBooks"
-        android:onClick="clickedSearchBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/scanBook"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="-15dp"
-        android:layout_marginBottom="129dp"
-        android:text="@string/search_books"
-        android:layout_alignRight="@+id/scanBook"
-        android:layout_marginRight="-15dp" />
+        android:layout_below="@+id/button2"
+        android:background="@drawable/buttonshape"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_search_black_24dp"
+        android:drawablePadding="10dp"
+        android:onClick="clickedSearchBook"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/search_books" />
 
     <Button
         android:id="@+id/button4"
         android:layout_width="wrap_content"
+        android:layout_below="@+id/searchBooks"
         android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/scanBook"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="46dp"
-        android:text="@string/users"
-        android:layout_alignRight="@+id/scanBook" />
+        android:background="@drawable/buttonshape"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:drawableLeft="@drawable/ic_people_black_24dp"
+        android:drawablePadding="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="@string/users" />
 </RelativeLayout>
