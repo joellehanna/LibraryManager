@@ -65,24 +65,33 @@ import com.google.zxing.integration.android.IntentResult;
                     Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
                 } else {
                     Log.d("MainActivity", "Scanned");
-                    Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                    //Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
                     contentTxt.setText("CONTENT: " + result.getContents());
-                }
+                    Intent intent = new Intent(this, RegisterNewBook.class);
+                    intent.putExtra("key",result.getContents());
+                    startActivity(intent);
 
+                }
             } else {
                 super.onActivityResult(requestCode, resultCode, data);
             }
-
-
+        }
+        private void addBooksToFirebase() {
 
         }
 
         public void clickedSearchBook(View view) {
-
             Intent intent = new Intent(this, LibraryActivity.class);
             startActivity(intent);
 
         }
+
+        public void clickedUsers(View view) {
+            Intent usersintent = new Intent(this, UsersActivity.class);
+            startActivity(usersintent);
+        }
+
+
 
         // uncomment the code below for not scanning in the main menu (i.e. in another activity) + add the corresponding onClick field in layout
 //        public void clickedScanBook(View view) {

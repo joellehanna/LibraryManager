@@ -25,6 +25,8 @@
         <activity android:name=".LibraryActivity" />
         <activity android:name=".BarcodeScannerActivity" />
         <activity android:name=".UsersActivity" />
+        <activity android:name=".UserManagerActivity" />
+        <activity android:name=".RegisterNewBook"></activity>
     </application>
 
 </manifest>
