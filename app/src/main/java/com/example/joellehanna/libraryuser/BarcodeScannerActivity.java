@@ -129,24 +129,22 @@ public class BarcodeScannerActivity extends AppCompatActivity implements ZXingSc
         startActivity(intent);
 
         /**AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("Scan Result");
-        builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                mScannerView.resumeCameraPreview(BarcodeScannerActivity.this);
-            }
+         builder.setTitle("Scan Result");
+         builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+        mScannerView.resumeCameraPreview(BarcodeScannerActivity.this);
+        }
         });
-
-        builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(result));
-                startActivity(browserIntent);
-            }
+         builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
+        @Override
+        public void onClick(DialogInterface dialogInterface, int i) {
+        Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(result));
+        startActivity(browserIntent);
+        }
         });
-
-        builder.setMessage(rawResult.getText());
-        AlertDialog alert1 = builder.create();
-        alert1.show();**/
+         builder.setMessage(rawResult.getText());
+         AlertDialog alert1 = builder.create();
+         alert1.show();**/
     }
 }

@@ -16,11 +16,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.SearchView;
 import android.util.Log;
-import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
-import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.ChildEventListener;
@@ -55,8 +51,6 @@ public class LibraryActivity extends AppCompatActivity {
     private FirebaseUser firebaseUser;
     private FirebaseAuth mAuth;
     private static String mUsername;
-    private FirebaseAuth.AuthStateListener mAuthListener;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,30 +61,12 @@ public class LibraryActivity extends AppCompatActivity {
         firebaseDatabase = FirebaseDatabase.getInstance();
         myRef = firebaseDatabase.getReference().child("Books");
 
-
-//        mAuth = FirebaseAuth.getInstance();
-        //firebaseUser = mAuth.getCurrentUser();
+        mAuth = FirebaseAuth.getInstance();
+        firebaseUser = mAuth.getCurrentUser();
 
         if (firebaseUser != null) {
             mUsername = firebaseUser.getDisplayName();
         }
-
-        // active listen to user logged in or not.
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    Log.e("Signed in", "onAuthStateChanged:signed_in:" + user.getUid());
-                } else {
-                    // User is signed out
-                    Log.e("Signed out", "onAuthStateChanged:signed_out");
-                }
-
-            }
-        };
-
 
         myRef.addValueEventListener(new ValueEventListener() {
 
@@ -304,46 +280,4 @@ public class LibraryActivity extends AppCompatActivity {
         recycle.setItemAnimator(new DefaultItemAnimator());
         recycle.setAdapter(recyclerAdapter);
     }
-
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        //mAuth.addAuthStateListener(mAuthListener);
-//        firebaseDatabase = FirebaseDatabase.getInstance();
-        mAuth = FirebaseAuth.getInstance();
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        anonymousLogin();
-    }
-
-    // release listener in onStop
-    @Override
-    public void onStop() {
-        super.onStop();
-        if (mAuthListener != null) {
-            mAuth.removeAuthStateListener(mAuthListener);
-        }
-    }
-
-    public void anonymousLogin(){
-
-        mAuth.signInAnonymously()
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        Log.e("Login", "Function called");
-                        if (task.isSuccessful()) {
-                            Toast.makeText(LibraryActivity.this, "Authentication Approved!", Toast.LENGTH_LONG).show();
-                            FirebaseUser currentUser = mAuth.getCurrentUser();
-                        } else {
-                            Toast.makeText(LibraryActivity.this, " Authentication Failed!", Toast.LENGTH_LONG).show();
-                        }
-
-                        if (!task.isSuccessful()) {
-                            Log.e("Login", "Big unknown error");
-                        }
-                    }
-                });
-    }
-
 }

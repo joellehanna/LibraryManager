@@ -114,7 +114,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHode
 
                     builder.setTitle("Borrow book");
                     builder.setMessage("Are you sure you want to borrow " + myList.getTitle() + "?"
-                                        + "\nThe due date would be on the " + dueDate);
+                            + "\nThe due date would be on the " + dueDate);
                     builder.setIcon(holder.itemView.getResources().getDrawable(R.drawable.agenda));
 
                     builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

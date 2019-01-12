@@ -13,101 +13,92 @@ import android.widget.Toast;
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
 
-    public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
-        private Button button;
-        private TextView contentTxt;
-        private Button libraryButton;
-        private Button bookScan;
-        private TextView message;
+    private Button button;
+    private TextView contentTxt;
+    private Button libraryButton;
+    private Button bookScan;
+    private TextView message;
 
-        public MainActivity() {
-        }
+    public MainActivity() {
+    }
 
-        @Override
-        protected void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_main);
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
 
-            message = findViewById(R.id.welcomeMsg);
-            message.setText(R.string.welcome);
+        message = findViewById(R.id.welcomeMsg);
+        message.setText(R.string.welcome);
 
-            libraryButton = findViewById(R.id.searchBooks);
-            libraryButton.setText(R.string.search_books);
+        libraryButton = findViewById(R.id.searchBooks);
+        libraryButton.setText(R.string.search_books);
 
-            bookScan = findViewById(R.id.scanBook);
-            bookScan.setText(R.string.scan_book);
+        bookScan = findViewById(R.id.scanBook);
+        bookScan.setText(R.string.scan_book);
 
-            button = (Button) this.findViewById(R.id.scanBook);
-            contentTxt = (TextView)findViewById(R.id.scanText);
-//            final Activity activity = this;
-//            button.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    IntentIntegrator integrator = new IntentIntegrator(activity);
-//                    integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
-//                    integrator.setPrompt("Scan");
-//                    integrator.setCameraId(0);
-//                    integrator.setBeepEnabled(false);
-//                    integrator.setBarcodeImageEnabled(false);
-//                    integrator.initiateScan();
-//                }
-//            });
-        }
-
-        @Override
-        protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-            IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
-            if(result != null) {
-                if(result.getContents() == null) {
-                    Log.d("MainActivity", "Cancelled scan");
-                    Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
-                } else {
-                    Log.d("MainActivity", "Scanned");
-                    //Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
-                    contentTxt.setText("CONTENT: " + result.getContents());
-                    Intent intent = new Intent(this, RegisterNewBook.class);
-                    intent.putExtra("key",result.getContents());
-                    startActivity(intent);
-
-                }
-            } else {
-                super.onActivityResult(requestCode, resultCode, data);
+        button = (Button) this.findViewById(R.id.scanBook);
+        contentTxt = (TextView)findViewById(R.id.scanText);
+        final Activity activity = this;
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                IntentIntegrator integrator = new IntentIntegrator(activity);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.ALL_CODE_TYPES);
+                integrator.setPrompt("Scan");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(false);
+                integrator.setBarcodeImageEnabled(false);
+                integrator.initiateScan();
             }
+        });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        IntentResult result = IntentIntegrator.parseActivityResult(requestCode, resultCode, data);
+        if(result != null) {
+            if(result.getContents() == null) {
+                Log.d("MainActivity", "Cancelled scan");
+                Toast.makeText(this, "Cancelled", Toast.LENGTH_LONG).show();
+            } else {
+                Log.d("MainActivity", "Scanned");
+                //Toast.makeText(this, "Scanned: " + result.getContents(), Toast.LENGTH_LONG).show();
+                contentTxt.setText("CONTENT: " + result.getContents());
+                Intent intent = new Intent(this, RegisterNewBook.class);
+                intent.putExtra("key",result.getContents());
+                startActivity(intent);
+
+            }
+        } else {
+            super.onActivityResult(requestCode, resultCode, data);
         }
-        private void addBooksToFirebase() {
-
-        }
-
-        public void clickedSearchBook(View view) {
-
-            Intent searchIntent = new Intent(this, searchActivity.class);
-            startActivity(searchIntent);
-
-        }
-
-        public void clickedUsers(View view) {
-            Intent usersintent = new Intent(this, UsersActivity.class);
-            startActivity(usersintent);
-        }
-
-
-
-        // uncomment the code below for not scanning in the main menu (i.e. in another activity) + add the corresponding onClick field in layout
-        public void clickedScanBook(View view) {
-
-            Intent scanIntent = new Intent(this, LibraryActivity.class);
-            startActivity(scanIntent);
-
-        }
-
-        // uncomment the code below for not scanning in the main menu (i.e. in another activity) + add the corresponding onClick field in layout
-        public void clickedOverviewButton(View view) {
-
-            Intent overviewIntent = new Intent(this, OverviewActivity.class);
-            startActivity(overviewIntent);
-
-        }
+    }
+    private void addBooksToFirebase() {
 
     }
+
+    public void clickedSearchBook(View view) {
+        Intent intent = new Intent(this, LibraryActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void clickedUsers(View view) {
+        Intent usersintent = new Intent(this, UsersActivity.class);
+        startActivity(usersintent);
+    }
+
+
+
+    // uncomment the code below for not scanning in the main menu (i.e. in another activity) + add the corresponding onClick field in layout
+//        public void clickedScanBook(View view) {
+//
+//            Intent intent = new Intent(this, searchActivity.class);
+//            startActivity(intent);
+//
+//        }
+
+}
