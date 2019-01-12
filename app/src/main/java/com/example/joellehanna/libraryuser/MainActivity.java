@@ -81,14 +81,9 @@ import com.google.zxing.integration.android.IntentResult;
         }
 
         public void clickedSearchBook(View view) {
-<<<<<<< HEAD
 
             Intent searchIntent = new Intent(this, searchActivity.class);
             startActivity(searchIntent);
-=======
-            Intent intent = new Intent(this, LibraryActivity.class);
-            startActivity(intent);
->>>>>>> 64ca13e094ed3cb13afc43b10614555a647ecde9
 
         }
 

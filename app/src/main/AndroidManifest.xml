@@ -24,13 +24,9 @@
         <activity android:name=".searchActivity" />
         <activity android:name=".LibraryActivity" />
         <activity android:name=".BarcodeScannerActivity" />
-        <activity android:name=".UsersActivity" />
-<<<<<<< HEAD
-        <activity android:name=".OverviewActivity"></activity>
-=======
         <activity android:name=".UserManagerActivity" />
         <activity android:name=".RegisterNewBook"></activity>
->>>>>>> 64ca13e094ed3cb13afc43b10614555a647ecde9
+
     </application>
 
 </manifest>
