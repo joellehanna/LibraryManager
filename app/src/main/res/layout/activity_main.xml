@@ -33,6 +33,7 @@
         android:id="@+id/scanBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clickedScanBook"
         android:layout_below="@+id/Img"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
@@ -54,9 +55,10 @@
         android:text="" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/libraryOverview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clickedOverviewButton"
         android:background="@drawable/buttonshape"
         android:drawableLeft="@drawable/bookshelf"
         android:layout_below="@+id/scanText"
@@ -72,7 +74,7 @@
         android:id="@+id/searchBooks"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
+        android:layout_below="@+id/libraryOverview"
         android:background="@drawable/buttonshape"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
