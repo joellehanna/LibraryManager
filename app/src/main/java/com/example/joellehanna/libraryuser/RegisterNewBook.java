@@ -132,13 +132,6 @@ public class RegisterNewBook extends AppCompatActivity {
         book_title.getText();
         book_genre.getText();
 
-
-        //myRef.child(usernameHolder).child("Books").setValue(usernameHolder);
-        //myRef.child(usernameHolder).child("picture").setValue(pictureHolder);
-
-        completeRegistration();
-
-
     }
 
     private void completeRegistration() {

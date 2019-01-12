@@ -34,13 +34,6 @@ import java.util.List;
 
 public class UsersActivity extends RecyclerView.Adapter<UsersActivity.AllUsers> {
 
-
-    FirebaseDatabase firebaseDatabase;
-    DatabaseReference myRef;
-
-    static List<BookClass> bookClassList;
-    static List<BookClass> bookClassListCopy;
-    RecyclerView recycle;
     List<User> userList = new ArrayList<>();
     static List<User> userListCopy = new ArrayList<>();
 
@@ -62,22 +55,20 @@ public class UsersActivity extends RecyclerView.Adapter<UsersActivity.AllUsers> 
     public AllUsers onCreateViewHolder(ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(context).inflate(R.layout.cardview, parent, false);
-        final AllUsers AllUsers = new AllUsers(view);
+        final AllUsers allUsers = new AllUsers(view);
 
-        mDatabase = FirebaseDatabase.getInstance().getReference().child("Books");
+        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
         mAuth = FirebaseAuth.getInstance();
         firebaseUser = mAuth.getCurrentUser();
-        mUsername = firebaseUser.getDisplayName();
+        //mUsername = firebaseUser.getDisplayName();
 
-        return AllUsers;
+        return allUsers;
     }
 
     @Override
     public void onBindViewHolder(final AllUsers holder, int position) {
         final User myList = userList.get(position);
-        holder.firstname.setText(myList.getFirstName());
-        holder.lastname.setText(myList.getLastName());
-        holder.emailaddress.setText(myList.getemailAdress());
+        holder.username.setText(myList.getUsername());
         Picasso.get().load(myList.getProfilepic())
                 .resize(220, 350)
                 .into(holder.profilePic);
@@ -104,17 +95,14 @@ public class UsersActivity extends RecyclerView.Adapter<UsersActivity.AllUsers> 
 
     class AllUsers extends RecyclerView.ViewHolder {
 
-        TextView firstname, lastname, emailaddress;
+        TextView username;
         ImageView profilePic;
 
         public AllUsers(View itemView) {
 
             super(itemView);
-            firstname = itemView.findViewById(R.id.first_name);
-            lastname = itemView.findViewById(R.id.last_name);
+            username = itemView.findViewById(R.id.username);
             profilePic = itemView.findViewById(R.id.profilepic);
-            emailaddress = itemView.findViewById(R.id.emailaddress);
-
 
         }
     }
