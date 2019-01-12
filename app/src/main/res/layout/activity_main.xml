@@ -87,7 +87,7 @@
         android:text="@string/search_books" />
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/users"
         android:layout_width="wrap_content"
         android:layout_below="@+id/searchBooks"
         android:layout_height="wrap_content"
@@ -98,6 +98,7 @@
         android:drawableLeft="@drawable/ic_people_black_24dp"
         android:drawablePadding="10dp"
         android:paddingLeft="20dp"
+        android:onClick="clickedUsers"
         android:paddingRight="20dp"
         android:text="@string/users" />
 </RelativeLayout>
