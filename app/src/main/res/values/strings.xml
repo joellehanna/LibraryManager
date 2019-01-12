@@ -5,4 +5,10 @@
     <string name="search_books"><b>Search Book</b></string>
     <string name="users"><b>Users</b></string>
     <string name="welcome">Welcome !</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="e_mail_address">E-Mail Address</string>
 </resources>
+
+

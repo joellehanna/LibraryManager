@@ -1,52 +1,5 @@
 package com.example.joellehanna.libraryuser;
 
-//import android.content.Intent;
-//import android.os.Bundle;
-//import android.support.v7.app.AppCompatActivity;
-//import android.view.View;
-//import android.widget.Button;
-//import android.widget.TextView;
-
-//public class MainActivity extends AppCompatActivity {
-//
-//    private Button libraryButton;
-//    private Button bookScan;
-//    private TextView message;
-//
-////    @Override
-////    protected void onCreate(Bundle savedInstanceState) {
-////        super.onCreate(savedInstanceState);
-////        setContentView(R.layout.activity_main);
-////
-////        message = findViewById(R.id.welcomeMsg);
-////        message.setText(R.string.welcome);
-////
-////        libraryButton = findViewById(R.id.searchBooks);
-////        libraryButton.setText(R.string.search_books);
-////
-////        bookScan = findViewById(R.id.scanBook);
-////        bookScan.setText(R.string.scan_book);
-////    }
-////
-////    public void clickedSearchBook(View view) {
-////
-////        Intent intent = new Intent(this, searchActivity.class);
-////        startActivity(intent);
-////
-////    }
-////
-////    public void clickedScanBook(View view) {
-////
-////        Intent intent = new Intent(this, LibraryActivity.class);
-////        startActivity(intent);
-////
-////    }
-//
-//
-//
-//}
-
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -75,6 +28,7 @@ import com.google.zxing.integration.android.IntentResult;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.activity_main);
+
 
             message = findViewById(R.id.welcomeMsg);
             message.setText(R.string.welcome);
@@ -125,16 +79,17 @@ import com.google.zxing.integration.android.IntentResult;
 
         public void clickedSearchBook(View view) {
 
-            Intent intent = new Intent(this, searchActivity.class);
-            startActivity(intent);
-
-        }
-
-        public void clickedScanBook(View view) {
-
             Intent intent = new Intent(this, LibraryActivity.class);
             startActivity(intent);
 
         }
+
+        // uncomment the code below for not scanning in the main menu (i.e. in another activity) + add the corresponding onClick field in layout
+//        public void clickedScanBook(View view) {
+//
+//            Intent intent = new Intent(this, searchActivity.class);
+//            startActivity(intent);
+//
+//        }
 
     }

@@ -10,9 +10,27 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.example.joellehanna.libraryuser.MainActivity">
 
+    <ImageView
+        android:id="@+id/Img"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_weight="3"
+        android:adjustViewBounds="true"
+        android:layout_marginBottom="5dp"
+        android:layout_marginTop="30dp"
+        android:contentDescription="@string/app_name"
+        android:src="@drawable/book_stack" />
+
+    <TextView
+        android:id="@+id/welcomeMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/welcome" />
+
     <Button
         android:id="@+id/scanBook"
-        android:onClick="clickedScanBook"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/buttonshape"
@@ -24,8 +42,6 @@
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"
-        android:text="@string/scan_book" />
-
     <TextView
         android:id="@+id/scanText"
         android:layout_width="wrap_content"
@@ -35,7 +51,6 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="10dp"
         android:text="" />
-
     <TextView
         android:id="@+id/welcomeMsg"
         android:layout_width="wrap_content"
