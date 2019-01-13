@@ -70,4 +70,11 @@
         android:ems="10"
         android:inputType="textPersonName"
         android:hint="url of cover" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="clickedDone"
+        android:text="DONE" />
 </LinearLayout>
