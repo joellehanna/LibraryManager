@@ -4,27 +4,30 @@ import android.net.Uri;
 
 public class User {
 
-    public String firstname;
-    public String lastname;
-    public Uri profilepic;
-    public String email;
+    public String picture;
+    public String username;
 
-
-    public String getFirstName() {
-        return firstname;
+    public User() {
     }
 
-    public String getLastName() {
-        return lastname;
+    public User(String picture, String username) {
+        this.picture = picture;
+        this.username = username;
     }
 
-    public Uri getProfilepic() {
-        return profilepic;
+    public String getPicture() {
+        return picture;
     }
 
-    public String getemailAdress() {
-        return email;
+    public void setPicture(String picture) {
+        this.picture = picture;
     }
 
+    public String getUsername() {
+        return username;
+    }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }

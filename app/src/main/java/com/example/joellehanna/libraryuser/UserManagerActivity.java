@@ -20,24 +20,34 @@ import java.util.List;
 
 public class UserManagerActivity extends AppCompatActivity {
 
-    private FirebaseDatabase firebaseDatabase;
-    private DatabaseReference myRef;
-    static List<User> userClassList;
-    static List<User> userClassListCopy;
-    private RecyclerView recycle;
-
-    private UsersActivity recyclerAdapter;
-
-    private DatabaseReference mDatabase;
-    private FirebaseUser firebaseUser;
-    private FirebaseAuth mAuth;
-    private static String mUsername;
-
-
+    private RecyclerView mRecyclerView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_manager);
+        mRecyclerView = (RecyclerView) findViewById( R.id.recyclerview_users );
+        new FirebaseDatabaseHelper().readUsers( new FirebaseDatabaseHelper.DataStatus() {
+            @Override
+            public void DataIsLoaded(List<User> users, List<String> keys) {
+                new RecyclerView_Config().setConfig( mRecyclerView, UserManagerActivity.this, users, keys);
+            }
+
+            @Override
+            public void DataIsInserted() {
+
+            }
+
+            @Override
+            public void DataIsUpdated() {
+
+            }
+
+            @Override
+            public void DataIsDeleted() {
+
+            }
+        } );
+
 
 
         // Start listing users from the beginning, 1000 at a time.

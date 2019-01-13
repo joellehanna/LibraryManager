@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void clickedUsers(View view) {
-        Intent usersintent = new Intent(this, UsersActivity.class);
+        Intent usersintent = new Intent(this, UserManagerActivity.class);
         startActivity(usersintent);
     }
 

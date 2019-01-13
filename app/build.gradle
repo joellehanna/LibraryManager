@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
+    buildToolsVersion '23.0.1'
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.example.joellehanna.libraryuser"
