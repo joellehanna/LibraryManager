@@ -1,12 +1,16 @@
 package com.example.joellehanna.libraryuser;
 
 import android.content.Context;
+import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
@@ -21,6 +25,7 @@ public class RecyclerView_Config {
     }
 
     class UserItemView extends RecyclerView.ViewHolder {
+        private ImageView mPicture;
         private TextView mUsername;
 
         private String key;
@@ -28,10 +33,14 @@ public class RecyclerView_Config {
             super(LayoutInflater.from(mContext).inflate(R.layout.user_list_item, parent, false) );
 
             mUsername = (TextView) itemView.findViewById( R.id.username );
+            mPicture = (ImageView) itemView.findViewById( R.id.picture );
 
         }
         public void bind(User user, String key){
             mUsername.setText(user.getUsername());
+            Picasso.get().load(user.getPicture())
+                    .resize(50, 50)
+                    .into(mPicture);
             this.key = key;
         }
 

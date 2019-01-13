@@ -3,6 +3,7 @@ package com.example.joellehanna.libraryuser;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
 
 import com.google.firebase.FirebaseApp;
 import com.google.firebase.FirebaseOptions;
@@ -29,6 +30,7 @@ public class UserManagerActivity extends AppCompatActivity {
         new FirebaseDatabaseHelper().readUsers( new FirebaseDatabaseHelper.DataStatus() {
             @Override
             public void DataIsLoaded(List<User> users, List<String> keys) {
+                findViewById( R.id.loading_users_pb ).setVisibility( View.GONE );
                 new RecyclerView_Config().setConfig( mRecyclerView, UserManagerActivity.this, users, keys);
             }
 
