@@ -222,8 +222,8 @@ public class LibraryActivity extends AppCompatActivity {
                             AlertDialog.Builder builder = new AlertDialog.Builder(getApplicationContext());
 
                             builder.setTitle("Book not available");
-                            builder.setMessage("This book is currently not available. Do you want to" +
-                                    "join the waiting list?");
+                            //builder.setMessage("This book is currently not available. Do you want to" +
+                              //      "join the waiting list?");
                             builder.setIcon(getResources().getDrawable(R.drawable.agenda));
 
                             builder.setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {

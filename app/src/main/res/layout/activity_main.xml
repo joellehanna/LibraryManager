@@ -1,25 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/relativeLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.example.joellehanna.libraryuser.MainActivity">
+
 
     <ImageView
         android:id="@+id/Img"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="120dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="50dp"
         android:layout_weight="3"
         android:adjustViewBounds="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginTop="30dp"
         android:contentDescription="@string/app_name"
-        android:src="@drawable/book_stack" />
+        android:src="@drawable/book_stack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/welcomeMsg" />
 
     <TextView
         android:id="@+id/welcomeMsg"
@@ -27,76 +34,116 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:text="@string/welcome" />
+        android:layout_marginTop="5dp"
+        android:text="@string/welcome"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/scanBook"
+        android:id="@+id/btn_login"
+        android:layout_width="93dp"
+        android:layout_height="48dp"
+        android:background="@drawable/buttonshape"
+        android:text="Sign IN"
+        android:textColor="#FFFFFF"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_sign_out"
+        android:layout_width="93dp"
+        android:layout_height="48dp"
+        android:background="@drawable/buttonshape"
+        android:text="Sign OUT"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btn_permanent"
+        android:layout_width="93dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/buttonshape"
+        android:text="Make Permanent"
+        android:textColor="#FFFFFF"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_sign_out" />
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/Img"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
         android:layout_marginTop="10dp"
-        android:background="@drawable/buttonshape"
-        android:drawableLeft="@drawable/barcode"
-        android:drawablePadding="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="Scan Books" />
+        android:layout_marginBottom="20dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Img">
+
+        <Button
+            android:id="@+id/scanBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_back"
+            android:drawableLeft="@drawable/barcode"
+            android:drawablePadding="10dp"
+            android:paddingLeft="100dp"
+            android:paddingRight="100dp"
+            android:text="Add New Book" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/searchBooks"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_back"
+                android:drawableLeft="@drawable/bookshelf"
+                android:onClick="clickedSearchBook"
+                android:paddingLeft="20dp"
+                android:text="Search Book" />
+
+            <Button
+                android:id="@+id/users"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:background="@drawable/button_back"
+                android:drawableLeft="@drawable/ic_people_black_24dp"
+                android:onClick="clickedUsers"
+                android:paddingLeft="20dp"
+                android:text="Search User" />
+        </LinearLayout>
+    </LinearLayout>
+
     <TextView
         android:id="@+id/scanText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/scanBook"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:text="" />
 
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttonshape"
-        android:drawableLeft="@drawable/bookshelf"
-        android:layout_below="@+id/scanText"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:text="@string/library_overview"
-        android:drawableStart="@drawable/bookshelf" />
+        android:layout_centerVertical="true"
+        android:layout_marginStart="12dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btn_login"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/searchBooks"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/button2"
-        android:background="@drawable/buttonshape"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/ic_search_black_24dp"
-        android:drawablePadding="10dp"
-        android:onClick="clickedSearchBook"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
-        android:text="@string/search_books" />
 
-    <Button
-        android:id="@+id/users"
-        android:layout_width="wrap_content"
-        android:layout_below="@+id/searchBooks"
-        android:layout_height="wrap_content"
-        android:background="@drawable/buttonshape"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="20dp"
-        android:drawableLeft="@drawable/ic_people_black_24dp"
-        android:drawablePadding="10dp"
-        android:paddingLeft="20dp"
-        android:onClick="clickedUsers"
-        android:paddingRight="20dp"
-        android:text="@string/users" />
-</RelativeLayout>
+</android.support.constraint.ConstraintLayout>

@@ -163,7 +163,7 @@ public class RegisterNewBook extends AppCompatActivity {
         myRef.child(keyID).child("barcode").setValue(L);
         myRef.child(keyID).child("borrowed").setValue("False");
         myRef.child(keyID ).child("dueDate").setValue("empty");
-        Toast.makeText(RegisterNewBook.this, "IN Firebase!", Toast.LENGTH_LONG).show();
+        Toast.makeText(RegisterNewBook.this, "Book Succesfully Added!", Toast.LENGTH_LONG).show();
 
     }
 
@@ -176,10 +176,10 @@ public class RegisterNewBook extends AppCompatActivity {
             if (TextUtils.isEmpty( authorHolder ) || TextUtils.isEmpty( titleHolder ) ||
                     TextUtils.isEmpty( genreHolder ) || TextUtils.isEmpty( pictureHolder )) {
                 //Toast.makeText(RegisterNewBook.this, "Didnt work", Toast.LENGTH_LONG);
-                Toast.makeText( RegisterNewBook.this, "Didnt Work", Toast.LENGTH_LONG ).show();
+                Toast.makeText( RegisterNewBook.this, "No Book Added", Toast.LENGTH_LONG ).show();
                 registerFormStatus = false;
             } else {
-                Toast.makeText( RegisterNewBook.this, "Worked!", Toast.LENGTH_LONG ).show();
+                //Toast.makeText( RegisterNewBook.this, "Wo", Toast.LENGTH_LONG ).show();
                 registerFormStatus = true;
             }
     }

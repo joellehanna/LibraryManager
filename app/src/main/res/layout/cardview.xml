@@ -58,7 +58,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/book_author"
                 android:layout_toRightOf="@id/detailsButton"
-                android:text="Borrow Book"
+                android:text="Available"
                 android:textStyle="bold"
                 android:textColor="@color/colorPrimaryDark"
                 android:layout_marginLeft="20dp"
