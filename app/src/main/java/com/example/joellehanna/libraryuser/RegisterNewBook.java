@@ -38,6 +38,7 @@ public class RegisterNewBook extends AppCompatActivity {
     private EditText book_genre;
     private EditText book_cover;
     private Button done;
+    private Button goBack;
 
     private Boolean registerFormStatus;
     String authorHolder, titleHolder, genreHolder, pictureHolder;
@@ -50,7 +51,7 @@ public class RegisterNewBook extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        final String keyID = getIntent().getExtras().getString( "key" ).toString();
+        final String keyID = getIntent().getExtras().getString( "key" );
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_register_new_book );
         btnLogIn = (Button) findViewById( R.id.btn_login );
@@ -62,6 +63,8 @@ public class RegisterNewBook extends AppCompatActivity {
         book_title = (EditText) findViewById( R.id.book_title );
         book_genre = (EditText) findViewById( R.id.book_genre );
         done = (Button) findViewById( R.id.button4 );
+        goBack = (Button) findViewById( R.id.button3 );
+
 
         mAuth = FirebaseAuth.getInstance();
 
@@ -77,6 +80,17 @@ public class RegisterNewBook extends AppCompatActivity {
                 } );
             }
         } );
+
+        done.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AddNewBook(keyID);
+
+                if (registerFormStatus) {
+                    addBookToFirebase(keyID);
+                }
+            }
+        });
 
         btnLogOut.setOnClickListener( new View.OnClickListener() {
             @Override
@@ -115,12 +129,13 @@ public class RegisterNewBook extends AppCompatActivity {
                     book_cover.setVisibility( View.VISIBLE );
                     book_genre.setVisibility( View.VISIBLE );
                     done.setVisibility( View.VISIBLE );
+                    goBack.setVisibility( View.VISIBLE );
                     firebaseDatabase = FirebaseDatabase.getInstance();
                     myRef = firebaseDatabase.getReference().child("Books");
-                    AddNewBook( keyID );
-                    if (registerFormStatus) {
-                        addBookToFirebase(keyID);
-                    }
+                    //AddNewBook( keyID );
+                    //if (registerFormStatus) {
+                     //   addBookToFirebase(keyID);
+                    //}
                     //Toast.makeText(ActivityAnonymous.this, mAuth.getCurrentUser().getProviderId(), Toast.LENGTH_SHORT).show();
                 } else {
                     //Toast.makeText(ActivityAnonymous.this, "SignedOut", Toast.LENGTH_SHORT).show();
@@ -132,39 +147,45 @@ public class RegisterNewBook extends AppCompatActivity {
                     book_cover.setVisibility( View.GONE );
                     book_genre.setVisibility( View.GONE );
                     done.setVisibility( View.GONE );
+                    goBack.setVisibility( View.GONE );
                 }
             }
         };
     }
-
     private void addBookToFirebase(String keyID) {
+
+        long L;
+        L = Long.parseLong( keyID );
         myRef.child(keyID).child("author").setValue(authorHolder);
         myRef.child(keyID).child("cover").setValue(pictureHolder);
         myRef.child(keyID).child("title").setValue(titleHolder);
         myRef.child(keyID).child("genre").setValue(genreHolder);
-        myRef.child(keyID).child("barcode").setValue(keyID);
+        myRef.child(keyID).child("barcode").setValue(L);
         myRef.child(keyID).child("borrowed").setValue("False");
-        myRef.child(keyID).child("dueDate").setValue("empty");
+        myRef.child(keyID ).child("dueDate").setValue("empty");
+        Toast.makeText(RegisterNewBook.this, "IN Firebase!", Toast.LENGTH_LONG).show();
 
     }
 
     private void AddNewBook(String keyID) {
-        contentTxt.setText( "ID: " + keyID );
-        authorHolder = book_author.getText().toString().trim();
-        pictureHolder = book_cover.getText().toString().trim();
-        titleHolder =book_title.getText().toString().trim();
-        genreHolder = book_genre.getText().toString().trim();
-        if (TextUtils.isEmpty(authorHolder) || TextUtils.isEmpty(titleHolder) ||
-                TextUtils.isEmpty(genreHolder) || TextUtils.isEmpty(pictureHolder)) {
-            //Toast.makeText(RegisterNewBook.this, "Didnt work", Toast.LENGTH_LONG);
-            registerFormStatus = false;
-        } else {
-            Toast.makeText(RegisterNewBook.this, "Worked!", Toast.LENGTH_LONG);
-            registerFormStatus = true;
-        }
+            contentTxt.setText( "ID: " + keyID );
+            authorHolder = book_author.getText().toString().trim();
+            pictureHolder = book_cover.getText().toString().trim();
+            titleHolder = book_title.getText().toString().trim();
+            genreHolder = book_genre.getText().toString().trim();
+            if (TextUtils.isEmpty( authorHolder ) || TextUtils.isEmpty( titleHolder ) ||
+                    TextUtils.isEmpty( genreHolder ) || TextUtils.isEmpty( pictureHolder )) {
+                //Toast.makeText(RegisterNewBook.this, "Didnt work", Toast.LENGTH_LONG);
+                Toast.makeText( RegisterNewBook.this, "Didnt Work", Toast.LENGTH_LONG ).show();
+                registerFormStatus = false;
+            } else {
+                Toast.makeText( RegisterNewBook.this, "Worked!", Toast.LENGTH_LONG ).show();
+                registerFormStatus = true;
+            }
     }
 
-    public void clickedDone(View view) {
+
+    public void clickedGoBack(View view) {
         Intent intent = new Intent( RegisterNewBook.this, MainActivity.class );
         startActivity( intent );
     }
