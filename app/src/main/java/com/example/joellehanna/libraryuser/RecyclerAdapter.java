@@ -80,6 +80,9 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHode
             holder.borrowButton.setText("Not Available");
             holder.borrowButton.setTextColor(holder.itemView.getResources().getColor(R.color.redWarning));
         }
+        else {
+            holder.borrowButton.setText("Available");
+            holder.borrowButton.setTextColor(holder.itemView.getResources().getColor(R.color.greenText));}
 
         holder.detailsButton.setOnClickListener(new View.OnClickListener() {
             @Override
