@@ -29,10 +29,7 @@
             android:name="com.google.android.actions"
             android:resource="@xml/searchable" />
 
-        <activity android:name=".searchActivity" />
         <activity android:name=".LibraryActivity" />
-        <activity android:name=".BarcodeScannerActivity" />
-        <activity android:name=".UsersActivity" />
         <activity android:name=".UserManagerActivity" />
         <activity android:name=".RegisterNewBook"></activity>
 

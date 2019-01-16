@@ -115,7 +115,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyHode
 
                     AlertDialog.Builder builder = new AlertDialog.Builder(holder.itemView.getContext());
 
-                    builder.setTitle("Borrow book");
+                    builder.setTitle("Book Available");
                     builder.setMessage("Are you sure you want to borrow " + myList.getTitle() + "?"
                             + "\nThe due date would be on the " + dueDate);
                     builder.setIcon(holder.itemView.getResources().getDrawable(R.drawable.agenda));

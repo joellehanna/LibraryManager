@@ -174,13 +174,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-
-    // uncomment the code below for not scanning in the main menu (i.e. in another activity) + add the corresponding onClick field in layout
-//        public void clickedScanBook(View view) {
-//
-//            Intent intent = new Intent(this, searchActivity.class);
-//            startActivity(intent);
-//
-//        }
-
 }
